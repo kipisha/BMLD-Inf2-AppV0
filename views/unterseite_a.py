@@ -15,7 +15,7 @@ data = {
 df_bakterien = pd.DataFrame(data)
 
 
-st.title("🧫 CellCompute | Bakterien-Datenbank")
+st.title("Mikrobieller-Rechner🦠")
     
 st.markdown("""
     Wähle einen Organismus aus der Datenbank aus. Die Generationszeit ($g$) wird 
