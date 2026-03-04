@@ -1,4 +1,7 @@
 
+import streamlit as st
+
+
 st.title("🧬 Biomedizinischer Bakterien-Rechner")
 
 
