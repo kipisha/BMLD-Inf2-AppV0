@@ -14,8 +14,7 @@ Dieses Projekt wurde im Rahmen des Moduls **Informatik 2 (BMLD)** an der ZHAW en
 
 
 * **Framework:** Streamlit (Python)
-* **Struktur:** Modularer Aufbau mit `views/` für das UI und `functions/` für die Berechnungslogik.
-* **Elemente:** Nutzt `st.form`, `st.metric`, `st.bar_chart`, `st.navigation` und weitere API-Features.
+* **Elemente:**  `st.form`, `st.metric`, `st.bar_chart`, `st.navigation`
 
 
 
