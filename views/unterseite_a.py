@@ -45,7 +45,10 @@ with st.container(border=True):
 
 
 nt, n_gen = calculate_bacterial_growth(n0, t, g)
-times, counts_, n_gen = get_growth_steps(n0, t, g)
+result = get_growth_steps(n0, t, g)
+times = result["data"]["times"]
+counts = result["data"]["counts"]
+
 
 
 
