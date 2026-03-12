@@ -23,6 +23,4 @@ pg = st.navigation([
     st.Page("views/bakterien_rechner.py", title="Bakterien-Rechner", icon="🧫"),
     st.Page("views/unterseite_a.py", title="Mikrobieller-Rechner", icon="🦠")
 ])
-
-
 pg.run()

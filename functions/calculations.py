@@ -22,9 +22,6 @@ def get_growth_steps(n0, t, g, steps=10):
         times_points.append(int(current_t))
         counts.append(int(nt_step))
 
-    
-from datetime import datetime
-import pytz
 
 def get_growth_steps(n0, t, g, steps=10):
     times_points = []
@@ -47,5 +44,3 @@ def get_growth_steps(n0, t, g, steps=10):
             "counts": counts
         }
     }
-data_manager = DataManager()
-data_manager.save_user_data(st.session_state['data_df'], 'data.csv')

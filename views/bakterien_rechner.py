@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px 
 from functions.calculations import calculate_bacterial_growth, get_growth_steps
+from utils.data_manager import DataManager
 
 st.title("🧫 Bakterien-Wachstums-Simulator")
 
@@ -64,3 +65,6 @@ with st.expander("🔬 Biologische Erklärung & Formel"):
     """)
 st.session_state['data_df'] = pd.concat([st.session_state['data_df'], pd.DataFrame([result])])
 st.dataframe(st.session_state['data_df'])
+ 
+data_manager = DataManager()
+data_manager.save_user_data(st.session_state['data_df'], 'data.csv')
