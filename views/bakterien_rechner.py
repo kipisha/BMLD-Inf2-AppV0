@@ -3,6 +3,12 @@ import pandas as pd
 import plotly.express as px 
 from functions.calculations import calculate_bacterial_growth, get_growth_steps
 from utils.data_manager import DataManager
+from datetime import datetime
+
+if 'history' not in st.session_state:
+  
+    st.session_state.history = pd.DataFrame(columns=["timestamp", "n0", "t", "g", "count"])
+
 
 st.title("🧫 Bakterien-Wachstums-Simulator")
 
@@ -16,6 +22,19 @@ g = st.sidebar.slider("Generationszeit (min)", 10, 100, 20)
 nt, n_gen = calculate_bacterial_growth(n0, t, g)
 result_test = calculate_bacterial_growth(n0, t, g)
 st.write(result_test)
+
+
+new_entry = pd.DataFrame([{
+    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    "n0": n0,
+    "t": t,
+    "g": g,
+    "count": int(nt)
+}])
+
+
+st.session_state.history = pd.concat([new_entry, st.session_state.history], ignore_index=True)
+
 
 result = get_growth_steps(n0, t, g)  
 times = result["data"]["times"]
@@ -65,6 +84,13 @@ with st.expander("🔬 Biologische Erklärung & Formel"):
     """)
 st.session_state['data_df'] = pd.concat([st.session_state['data_df'], pd.DataFrame([result])])
 st.dataframe(st.session_state['data_df'])
+
+st.subheader("Verlauf der Simulationen")
+st.dataframe(st.session_state.history, use_container_width=True)
+
+data_manager = DataManager()
+data_manager.save_user_data(st.session_state.history, 'data.csv')
+
  
 data_manager = DataManager()
 data_manager.save_user_data(st.session_state['data_df'], 'data.csv')
