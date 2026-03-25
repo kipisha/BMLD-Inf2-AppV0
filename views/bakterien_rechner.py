@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px 
-from datetime import datetime
+from datetime import datetime, timedelta 
 from functions.calculations import calculate_bacterial_growth, get_growth_steps
 from utils.data_manager import DataManager
 
@@ -22,7 +22,7 @@ result_steps = get_growth_steps(n0, t, g)
 
 if st.sidebar.button("Simulation in Historie speichern"):
     new_entry = pd.DataFrame([{
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+       "timestamp": (datetime.now() + timedelta(hours=2)).strftime("%Y-%m-%d %H:%M:%S"),
         "n0": n0,
         "t": t,
         "g": g,
