@@ -5,8 +5,6 @@ from datetime import datetime, timedelta
 from functions.calculations import calculate_bacterial_growth, get_growth_steps
 from utils.data_manager import DataManager
 
-st.set_page_config(page_title="Bakterien-Simulator", layout="wide")
-
 
 if 'history' not in st.session_state:
     st.session_state.history = pd.DataFrame(columns=["timestamp", "n0", "t", "g", "count"])
