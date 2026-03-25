@@ -11,8 +11,8 @@ login_manager = LoginManager(data_manager)
 login_manager.login_register()
 
 
-if 'data_df' not in st.session_state:
-    st.session_state['data_df'] = data_manager.load_user_data(
+if 'history' not in st.session_state:
+    st.session_state['history'] = data_manager.load_user_data(
         'data.csv', 
         initial_value=pd.DataFrame(),
         parse_dates=['timestamp']
