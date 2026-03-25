@@ -6,11 +6,11 @@ from functions.calculations import calculate_bacterial_growth, get_growth_steps
 from utils.data_manager import DataManager
 
 st.set_page_config(page_title="Bakterien-Simulator", layout="wide")
-st.title("🧫 Bakterien-Wachstums-Simulator")
+
 
 if 'history' not in st.session_state:
     st.session_state.history = pd.DataFrame(columns=["timestamp", "n0", "t", "g", "count"])
-
+st.title("🧫 Bakterien-Wachstums-Simulator")
 
 st.sidebar.header("Parameter anpassen")
 n0 = st.sidebar.slider("Startanzahl ($N_0$)", 1, 1000, 100)
